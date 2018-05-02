@@ -24,13 +24,23 @@ def gaussian(lim_x, mu, sigma):
 
 
 def lab7_var_6(xs, mu, sigma):
+    """
+        Parameters
+        ----------
+        xs : iterable
+            Сетка значений по оси абсцисс
+        mu : float
+            среднее значение (мат.ожидание)
+        sigma : float
+            среднеквадратичное отклонение
+    """
     plt.plot(xs, [gaussian(x, mu, sigma) for x in xs], label='$\sigma = ' + str(sigma) + '$')
     plt.legend()
     plt.show()
 
 
 def test_lab7_var_6():
-    xs = np.arange(-8, 8, 0.05)  # Сетка значений по оси абсцисс.
+    xs = np.arange(-8, 8, 0.05)
     lab7_var_6(xs, 0.0, 0.5)
     lab7_var_6(xs, 0.0, 1.0)
     lab7_var_6(xs, 0.0, 2.0)
