@@ -1,6 +1,7 @@
 import math
-import numpy as np
+
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.integrate import quad
 
 
@@ -34,16 +35,18 @@ def lab7_var_6(xs, mu, sigma):
         sigma : float
             среднеквадратичное отклонение
     """
-    plt.plot(xs, [gaussian(x, mu, sigma) for x in xs], label='$\sigma = ' + str(sigma) + '$')
-    plt.legend()
-    plt.show()
+    plt.plot(xs, [gaussian(x, mu, sigma) for x in xs],
+             label='$\mu = ' + "%.1f" % mu + ', \sigma^2 = ' + "%.1f" % (sigma ** 2) + '$')
 
 
 def test_lab7_var_6():
-    xs = np.arange(-8, 8, 0.05)
-    lab7_var_6(xs, 0.0, 0.5)
-    lab7_var_6(xs, 0.0, 1.0)
-    lab7_var_6(xs, 0.0, 2.0)
+    xs = np.arange(-5, 5, 0.01)
+    lab7_var_6(xs, 0.0, math.sqrt(0.2))
+    lab7_var_6(xs, 0.0, math.sqrt(1.0))
+    lab7_var_6(xs, 0.0, math.sqrt(5.0))
+    lab7_var_6(xs, -2.0, math.sqrt(0.5))
+    plt.legend()
+    plt.show()
 
 
 if __name__ == '__main__':
